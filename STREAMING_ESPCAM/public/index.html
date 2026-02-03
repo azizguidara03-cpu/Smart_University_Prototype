@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ESP32 Live Stream</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: sans-serif;
+        margin: 2rem;
+      }
+      img {
+        max-width: 100%;
+        border: 2px solid #333;
+        margin-top: 1rem;
+      }
+      pre {
+        text-align: left;
+        background: #f0f0f0;
+        padding: 1rem;
+        height: 200px;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📷 ESP32 Live Stream</h1>
+    <img id="stream" src="" alt="Waiting for feed…" />
+    <pre id="log"></pre>
+
+    <script>
+      const img = document.getElementById("stream");
+      const log = document.getElementById("log");
+      function clog(...args) {
+        console.log(...args);
+        log.textContent += args.join(" ") + "\n";
+        log.scrollTop = log.scrollHeight;
+      }
+
+      // 1) Plain text (binary) feed at /stream
+      const ws = new WebSocket(`ws://${location.hostname}:3000/stream`);
+      ws.binaryType = "blob";
+
+      ws.onopen = () => clog("🔗 Stream WS connected");
+      ws.onerror = (e) => clog("❌ Stream WS error", e.message || e);
+      ws.onclose = () => clog("🔒 Stream WS closed");
+
+      ws.onmessage = (evt) => {
+        const blob = evt.data; // a Blob of JPEG bytes
+        clog("📨 Received frame, size:", blob.size);
+
+        const url = URL.createObjectURL(blob);
+        img.src = url;
+
+        // cleanup old object URL
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      };
+    </script>
+  </body>
+</html>
