@@ -6,12 +6,12 @@
 #include <WiFiClientSecure.h>
 
 // WiFi credentials
-const char* ssid = "Orange-1FC9";
-const char* password = "6BY5q5RYB2h";
+const char* ssid = "";
+const char* password = "";
 
 // Supabase config
 const char* supabaseURL = "https://wkvkynmbnqycxnkfdvip.supabase.co/rest/v1/";
-const char* supabaseAPIKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indrdmt5bm1ibnF5Y3hua2ZkdmlwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDMyMzE4OTUsImV4cCI6MjA1ODgwNzg5NX0.kj95zrdFOJaBRZoJ4SBRcv2TDfC5rQeNliaCubsM6Sk";
+const char* supabaseAPIKey = "";
 
 // Pins
 #define DHTPIN D1

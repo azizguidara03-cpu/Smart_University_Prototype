@@ -12,12 +12,12 @@
 #include <time.h>
 
 // === Wi-Fi credentials ===
-const char* ssid = "Orange-1FC9";
-const char* password = "6BY5q5RYB2h";
+const char* ssid = "";
+const char* password = "";
 
 // === Supabase ===
 const String baseURL = "https://wkvkynmbnqycxnkfdvip.supabase.co/rest/v1/";
-const String supabaseAPIKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indrdmt5bm1ibnF5Y3hua2ZkdmlwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDMyMzE4OTUsImV4cCI6MjA1ODgwNzg5NX0.kj95zrdFOJaBRZoJ4SBRcv2TDfC5rQeNliaCubsM6Sk"; 
+const String supabaseAPIKey = ""; 
 
 LiquidCrystal_PCF8574 lcd(0x27);
 
