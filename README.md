@@ -1,53 +1,40 @@
-# Smart University Prototype
+# Smart University Prototype 🎓
 
-This repository houses the prototypes and source code for the **Smart University Project**, an integrated system combining mobile applications, IoT sensors, and video streaming for campus management.
+![Project Status](https://img.shields.io/badge/Status-Prototype-orange)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
-## 📂 Repository Structure
+The **Smart University Project** is a comprehensive IoT and software ecosystem designed to modernize campus management. It combines mobile applications, real-time video streaming, and intelligent sensor networks to create a safer, smarter learning environment.
 
-The project is organized into the following key components:
+## 📂 Repository Components
 
-### 📱 `smart_school-main` (Mobile Application)
-A **Flutter** application serving as the main interface for students and staff.
-- **Path**: `/smart_school-main`
-- **Tech Stack**: Flutter (Dart)
-- **Features**: User authentication, dashboard, notifications.
+This repository is modularized into three main systems. Click the links below for detailed documentation on each:
 
-### 🎥 `STREAMING_ESPCAM` (Video Streaming Server)
-A dedicated **Node.js** server for handling video streams, designed to interface with ESP32-CAM modules.
-- **Path**: `/STREAMING_ESPCAM`
-- **Tech Stack**: Node.js, Express, WebSocket
-- **Setup**:
-  ```bash
-  cd STREAMING_ESPCAM
-  npm install
-  npm start
-  ```
+### 📱 1. [Mobile Application](./smart_school-main/README.md)
+*   **Path**: `/smart_school-main`
+*   **Tech**: Flutter (Dart), Supabase.
+*   **Role**: The frontend interface for students and staff to view dashboards, receive alerts, and track attendance.
 
-### 📡 `SMART_FST` (IoT Firmware)
-Arduino firmware code for sensor modules (Fire detection, Temperature, etc.).
-- **Path**: `/SMART_FST_1` and `/SMART_FST_2`
-- **Tech Stack**: C++ (Arduino)
-- **Hardware**: ESP32 / Arduino compatible boards.
+### 🎥 2. [Streaming Server](./STREAMING_ESPCAM/README.md)
+*   **Path**: `/STREAMING_ESPCAM`
+*   **Tech**: Node.js, Express, WebSockets.
+*   **Role**: A high-performance relay server that broadcasts live video from ESP32-CAM nodes to the mobile app.
+
+### 📡 3. [IoT Firmware](./SMART_FST_1/README.md)
+*   **Path**: `/SMART_FST_1` (ESP32) & `/SMART_FST_2` (ESP8266).
+*   **Tech**: C++, Arduino.
+*   **Role**: The brain of the physical classroom, managing fire detection, smart locks, lighting, and environmental control.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Quick Setup Guide
 
-1.  **Clone the repository**:
+1.  **Clone the Repo**:
     ```bash
     git clone https://github.com/azizguidara03-cpu/Smart_University_Prototype.git
     ```
+2.  **App**: Go to `smart_school-main`, run `flutter pub get` and `flutter run`.
+3.  **Server**: Go to `STREAMING_ESPCAM`, run `npm install` and `npm start`.
+4.  **Hardware**: Flash the `.ino` files in `SMART_FST_*` to your ESP devices.
 
-2.  **Mobile App Setup**:
-    - Ensure you have Flutter installed.
-    - Navigate to `smart_school-main` and run:
-      ```bash
-      flutter pub get
-      flutter run
-      ```
-
-3.  **Server Setup**:
-    - Navigate to `STREAMING_ESPCAM` and install dependencies as shown above.
-
-## 🛠 Contributing
-Please ensure you do not commit `node_modules` or build artifacts. The repository includes a `.gitignore` to handle this automatically.
+## 🤝 Contributing
+Please follow standard git practices. Do not commit sensitive keys or `node_modules`. A `.gitignore` is provided.
