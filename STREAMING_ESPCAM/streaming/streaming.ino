@@ -5,8 +5,8 @@
 using namespace websockets;
 
 // — Wi-Fi credentials —
-const char* ssid     = "Orange-1FC9";
-const char* password = "6BY5q5RYB2h";
+const char* ssid     = "";
+const char* password = "";
 
 // — WS ingest endpoint (ESP32 → backend) —
 const char* websocket_server = "ws://192.168.1.175:8080/esp32";
